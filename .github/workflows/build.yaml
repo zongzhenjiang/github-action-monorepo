@@ -10,3 +10,4 @@ jobs:
             - run: npm install -g @pnpm/exe@latest-10
             - run: pnpm run -r build
             - run: pnpm 
+            - run: ls
