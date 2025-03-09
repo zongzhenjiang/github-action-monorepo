@@ -1,15 +1,20 @@
 on: push
 
-jobs: 
-    job-1: 
-        runs-on: windows-latest
-        steps: 
-            - uses: actions/checkout@v4
-            - run: pwd
-            - run: ls
-            - run: npm install -g pnpm@latest-10
-            - run: pnpm --version
-            - run: pnpm install
-            - run: pnpm run -r build
-            - run: ls webs/app-1
-            - run: ls webs/app-2
+jobs:
+    loop-through-projects:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Code
+          uses: actions/checkout@v2
+  
+        - name: Loop
+          run: |
+            # 进入目标文件夹
+            for dir in webs/*; do
+              if [ -d "$dir" ]; then
+                echo "Processing directory: $dir"
+                # 你可以在这里执行对每个子项目的操作，例如运行测试，构建等
+                # cd $dir
+                # <你的操作>
+              fi
+            done

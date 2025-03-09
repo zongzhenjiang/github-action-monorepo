@@ -1,0 +1,15 @@
+on: push
+
+jobs: 
+    job-1: 
+        runs-on: windows-latest
+        steps: 
+            - uses: actions/checkout@v4
+            - run: pwd
+            - run: ls
+            - run: npm install -g pnpm@latest-10
+            - run: pnpm --version
+            - run: pnpm install
+            - run: pnpm run -r build
+            - run: ls webs/app-1
+            - run: ls webs/app-2
