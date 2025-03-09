@@ -1,0 +1,7 @@
+on: push
+
+jobs: 
+    job-1: 
+        runs-on: windows-latest
+        steps: 
+            - run: ls
