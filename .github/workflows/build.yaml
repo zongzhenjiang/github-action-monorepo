@@ -8,6 +8,9 @@ jobs:
             - run: pwd
             - run: ls
             - run: npm install -g @pnpm/exe@latest-10
+            - run: Get-ExecutionPolicy
+            - run: Set-ExecutionPolicy RemoteSigned
+            - run: Get-ExecutionPolicy
             - run: pnpm run -r build
             - run: ls webs/app-1
             - run: ls webs/app-2
