@@ -6,7 +6,11 @@ jobs:
         steps:
         - name: Checkout Code
           uses: actions/checkout@v2
-  
+            
+        - name: Fetch previous commit
+          run: |
+                git fetch origin main
+                
         - name: Loop
           run: |
                 if git diff --quiet HEAD^ HEAD -- webs/; then
