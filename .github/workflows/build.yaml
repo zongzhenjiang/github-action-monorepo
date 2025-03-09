@@ -9,5 +9,5 @@ jobs:
             - run: ls
             - run: npm install -g @pnpm/exe@latest-10
             - run: pnpm run -r build
-            - run: pnpm 
-            - run: ls
+            - run: ls webs/app-1
+            - run: ls webs/app-2
