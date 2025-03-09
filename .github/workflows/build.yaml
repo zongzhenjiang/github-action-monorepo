@@ -11,13 +11,9 @@ jobs:
           run: |
             # 进入目标文件夹
             for dir in webs/*; do
-              if [ -d "$dir" ]; then
-                echo "Processing directory: $dir"
-                if [ -f "$dir/package.json" ]; then
-                    new_version=$(jq -r '.version' "$dir/package.json")
-                    old_version=$(git show HEAD^:"$dir/package.json" | jq -r '.version')
-                    echo "New package version: $new_version"
-                    echo "Old package version: $old_version"
+                if git diff --quiet HEAD^ HEAD -- "$dir"; then
+                    echo "$dir have change"
+                else
+                    echo "$dir no change"
                 fi
-              fi
             done
