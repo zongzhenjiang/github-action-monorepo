@@ -13,8 +13,9 @@ jobs:
             for dir in webs/*; do
               if [ -d "$dir" ]; then
                 echo "Processing directory: $dir"
-                # 你可以在这里执行对每个子项目的操作，例如运行测试，构建等
-                # cd $dir
-                # <你的操作>
+                if [ -f "$dir/package.json" ]; then
+                    version=$(jq -r '.version' "$dir/package.json")
+                    echo "Package version: $version"
+                fi
               fi
             done
