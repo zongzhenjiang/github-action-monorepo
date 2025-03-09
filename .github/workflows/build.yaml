@@ -7,7 +7,7 @@ jobs:
             - uses: actions/checkout@v4
             - run: pwd
             - run: ls
-            - run: npm install -g @pnpm/exe@latest-10
+            - run: npm install -g pnpm@latest-10
             - run: pnpm --version
             - run: pnpm install
             - run: pnpm run -r build
