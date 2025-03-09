@@ -13,5 +13,9 @@ jobs:
             for dir in webs/*; do
                 git diff --quiet HEAD -- "$dir"
                 change=$?
-                echo "$change"
+                if [ $change -eq 0 ]; then
+                    echo "$dir no change"
+                else
+                    echo "$dir has change"
+                fi
             done
