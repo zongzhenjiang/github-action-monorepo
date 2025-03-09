@@ -4,5 +4,6 @@ jobs:
     job-1: 
         runs-on: windows-latest
         steps: 
+            - uses: actions/checkout@v4
             - run: pwd
             - run: ls
