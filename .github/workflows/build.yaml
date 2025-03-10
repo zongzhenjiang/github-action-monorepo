@@ -9,4 +9,4 @@ jobs:
             
         - name: Loop
           run: |
-                git diff HEAD HEAD~1
+                git diff --name-only HEAD^ HEAD
