@@ -9,4 +9,9 @@ jobs:
             
         - name: Loop
           run: |
-                git diff HEAD^ HEAD
+                # 获取当前提交和上次提交的SHA
+                current_commit=$(git rev-parse HEAD)
+                previous_commit=$(git rev-parse HEAD^)
+                
+                # 使用git diff显示差异
+                git diff $previous_commit $current_commit
