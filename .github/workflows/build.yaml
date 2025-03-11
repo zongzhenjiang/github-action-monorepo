@@ -9,5 +9,10 @@ jobs:
           with:
             fetch-depth: 0
             
-        - name: Loop
-          run: git diff HEAD^ HEAD -- package.json
+        - name: Loop through files in a directory
+          run: |
+            for file in src/*.txt; do
+              if [ -f "$file" ]; then
+                echo "Directory: $file"
+              fi
+            done
