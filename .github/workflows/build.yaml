@@ -30,12 +30,16 @@ jobs:
             done
             echo "files=${files[@]}" >> $GITHUB_ENV
             
-        - name: Print Result
+        - name: Build Changed Project
           run: |
             # Retrieve the files from the environment variable
             echo "Files from previous step: $files"
 
-            # Do something with the files, e.g., list them
+            # Do something with the files and list them
             for file in $files; do
               echo "Processing file: $file"
+              cd "$file"
+              pnpm install
+              pnpm run build
+              ls
             done
