@@ -14,5 +14,6 @@ jobs:
             for dir in webs/*; do
               if [ -d "$dir" ]; then
                 echo "Directory: $dir"
+                git diff HEAD^ HEAD -- "$dir"
               fi
             done
