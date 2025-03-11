@@ -50,4 +50,5 @@ jobs:
               NAME=$(jq -r .name package.json)
               VERSION=$(jq -r .version package.json)
               echo "$NAME $VERSION"
+              docker buildx build --push --tag ${{ secrets.DOCKER_USERNAME }}/$NAME:$VERSION
             done
