@@ -10,4 +10,4 @@ jobs:
             fetch-depth: 0
             
         - name: Loop
-          run: git diff HEAD^ HEAD -- .github/workflows/build.yaml
+          run: git diff HEAD^ HEAD -- package.json
