@@ -16,13 +16,26 @@ jobs:
         
         - name: Loop through files in a directory
           run: |
+            files=()
             for dir in webs/*; do
               if [ -d "$dir" ]; then
                 echo "Directory: $dir"
                 if git diff --quiet HEAD^ HEAD -- "$dir"; then
                   echo "No changes."
                 else
+                  files+=("$dir")
                   echo "Changes detected."
                 fi
               fi
+            done
+            echo "files=${files[@]}" >> $GITHUB_ENV
+            
+        - name: Print Result
+          run: |
+            # Retrieve the files from the environment variable
+            echo "Files from previous step: $files"
+
+            # Do something with the files, e.g., list them
+            for file in $files; do
+              echo "Processing file: $file"
             done
