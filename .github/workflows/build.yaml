@@ -9,4 +9,4 @@ jobs:
             
         - name: Loop
           run: |
-                git log origin/main -n 2
+                git diff HEAD^ HEAD
