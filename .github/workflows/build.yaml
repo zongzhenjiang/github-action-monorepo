@@ -11,8 +11,8 @@ jobs:
             
         - name: Loop through files in a directory
           run: |
-            for file in webs/*; do
-              if [ -f "$file" ]; then
-                echo "Directory: $file"
+            for dir in webs/*; do
+              if [ -d "$dir" ]; then
+                echo "Directory: $dir"
               fi
             done
