@@ -1,0 +1,4 @@
+curl -X POST \
+            -H "Authorization: token $TOKEN" \
+            -d '{"name":"new-repository-name", "private":true}' \
+            https://api.github.com/user/repos

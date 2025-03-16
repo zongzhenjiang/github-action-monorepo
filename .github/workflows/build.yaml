@@ -12,8 +12,12 @@ jobs:
       - name: Create Repo
         env:
           TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          curl -X POST \
-            -H "Authorization: token $TOKEN" \
-            -d '{"name":"new-repository-name", "private":true}' \
-            https://api.github.com/user/repos
+        run: |  
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://api.github.com/repos/zongzhenjiang/Test)
+          if [ "$response" -eq 200 ]; then
+            echo "Repository exists."
+          elif [ "$response" -eq 404 ]; then
+            echo "Repository does not exist."
+          else
+            echo "Error: Unable to check repository status."
+          fi
